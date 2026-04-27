@@ -13,28 +13,37 @@
 //  Uso: Peça o nome, peso e altura, processe os dados e exiba o laudo.
 
 
+let peso = 0
+let altura = 0
+let nome: string = ""
+
 let imc =0
 function calcular_imc():number{
      peso = Number(prompt("Informe seu peso: "))
      altura = Number(prompt("Informe sua altura: "))
-     nome = 
+     nome = String(prompt("Informe seu nome: "))
 
      imc = peso/(altura*altura)
      return imc
 }
-let classificacao = classificar_imc(imc)
 
-function classificar_imc(imc:number){
+function classificar_imc(imc:number):string{
     if(imc < 18.5){
-        console.log("Abaixo do peso")
+       return "Abaixo do peso"
     }
     else if(imc >= 18.5 && imc <= 24.9){
-        console.log("Peso Normal")
+       return "Peso Normal"
     }
     else{
-        console.log("sobrepeso")
+       return "sobrepeso"
     }
 }
-function exibir_laudo (nome:string, classificacao:number){
-
+function exibir_laudo (nome:string, classificacao:string){
+    console.log("Paciente: " + nome + " - peso: " +peso+ " - Altura: " +altura+ " - Status: " + classificacao)
 }
+
+let classificacao = classificar_imc(imc)
+
+let IMC = calcular_imc()
+let resultado = classificar_imc(IMC)
+exibir_laudo (nome, resultado)
